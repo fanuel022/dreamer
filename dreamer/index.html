@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<!-- Scripts Requeridos -->
+	<script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+	
 </head>
 <body>
 	<!-- Começo do Nav -->
@@ -53,6 +56,30 @@
 						</ul>
 					</div>
 				</div>
+				<!-- Toggle menu -->
+				<div class="sidebarBtn">
+					<span></span>
+				</div>
+				<!-- Responsivo -->
+				<div class="col-md-3">
+					<div class="responsivo">
+						<ul>
+							<li><a href="#">Página Inicial</a></li>
+							<li><a href="#">Sobre Mim</a></li>
+							<li><a href="#">Categorias</a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Contato</a></li>
+						</ul>
+						<div class="responsivo-social">
+							<ul>
+								<li><a href="#"><i class="fa fa-search"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -82,8 +109,8 @@
 					<h1>hello</h1>
 					<h3>Um Pouco Sobre Mim</h3>
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing </p>
-					<div class="btn-sobre">
-						<a href="#">Continue Lendo </a><img class="seta" src="img/seta.png" alt="Seta">
+					<div class="btn-sobre" onmouseover="mudar();" onmouseout="normal();">
+						<a href="#">Continue Lendo </a><img class="seta" src="img/seta.png" alt="Seta" name="img" border="0">
 					</div>
 				</div>
 			</div>
@@ -242,8 +269,12 @@
 						<!-- /Fim do Card Post -->		
 					</div>
 						<!-- pagination -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next">
+						<i class="fa fa-angle-right" style="font-size: 80px; color: var(--cor-vermelho); font-weight: lighter;"></i>
+					</div>
+					<div class="swiper-button-prev">
+						<i class="fa fa-angle-left" style="font-size: 80px; color: var(--cor-vermelho); font-weight: lighter;"></i>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -278,8 +309,8 @@
 					<h1>dreamer</h1>
 					<h3>Seja um sonhador tambem</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi possimus eaque aliquam magni placeat enim temporibus nesciunt porro vitae unde tempora dignissimos, animi, iusto cupiditate earum fuga? Temporibus, libero, odit.</p>
-					<div class="btn-cadastro">
-						<a href="#">Cadastre-se</a><img src="img/seta.png" alt="Seta" class="seta">
+					<div class="btn-cadastro" onmouseover="mudar2();" onmouseout="normal2();">
+						<a href="#">Cadastre-se</a><img src="img/seta.png" alt="Seta" class="seta" name="img2" border="0">
 					</div>
 				</div>
 				<!-- images -->
@@ -335,13 +366,15 @@
 
 	<script src="js/swiper.min.js"></script>
 	<script>
-		var swiper = new Swiper('.swiper-contendo', {
+		var swiper2 = new Swiper('.swiper-contendo', {
 			slidesPerView: 1,
+			slidesPerGroup: 1,
 			spaceBetween: 1000,
       		loop: true,
       		pagination: {
 		        el: '.swiper-pagination',
 		        dynamicBullets: true,
+		        clickable: true,
       		},
 		});
 	</script>
@@ -360,23 +393,22 @@
 							<!-- livro 1 -->
 							<div class="swiper-slide">
 								<img src="img/book1.jpg" alt="Segundo a Palavra">
-								<p><i class="fa fa-user"> @Boy-Who</i></p>
 							</div>
 							<!-- livro 2 -->
 							<div class="swiper-slide">
-								<img src="img/book1.jpg" alt="Segundo a Palavra">
-								<p><i class="fa fa-user"> @Boy-Who</i></p>
+								<img src="img/book2.jpg" alt="Segundo a Palavra">
 							</div>
 							<!-- livro 3 -->
 							<div class="swiper-slide">
-								<img src="img/book1.jpg" alt="Segundo a Palavra">
-								<p><i class="fa fa-user"> @Boy-Who</i></p>
+								<img src="img/book3.jpg" alt="Segundo a Palavra">
 							</div>
 							<!-- livro 4 -->
 							<div class="swiper-slide">
-								<img src="img/book1.jpg" alt="Segundo a Palavra">
-								<p><i class="fa fa-user"> @Boy-Who</i></p>
+								<img src="img/book4.jpg" alt="Segundo a Palavra">
 							</div>
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination seta-book">
 						</div>
 					</div>
 				</div>
@@ -387,33 +419,37 @@
 
 	<script src="js/swiper.min.js"></script>
 	<script>
-		var swiper = new Swiper('.swiper-contencao', {
-	      slidesPerView: 2,
-	      spaceBetween: 0,
-	      loop: true,
-	      loopFillGroupWithBlank: true,
-	      pagination: {
-	        el: '.swiper-pagination',
-	        clickable: true,
-	      },
-	      breakpoints: {
-	      	760: {
-	      		slidesPerView: 1,
-	      	}
-	      },
+		var swiper3 = new Swiper('.swiper-contencao', {
+			slidesPerView: 4,
+	      	spaceBetween: 0,
+	      	pagination: {
+		        el: '.swiper-pagination',
+		        dynamicBullets: true,
+      		},
+	      	breakpoints: {
+	      		760: {
+	      			slidesPerView: 1,
+	      		}
+	      	},
     	});
 	</script>
 	
 	<!-- Começo do Blog -->
-	<div class="blog" style="border: 1px solid #000;">
+	<div class="blog">
 		<div class="container">
 			<div class="row">
+				<!-- Titulo -->
+				<div class="col-md-12">
+					<h1>Blog do Projeto</h1>
+				</div>
 				<!-- post 1 -->
 				<div class="col-md-4">
 					<div class="card-body">
 						<!-- thumb -->
 						<div class="thumb-post">
-							.../imageshere
+							<div class="box-blog">
+								<a href="#">Nos acompanhe pelo Wattpad</a>
+							</div>
 						</div>
 						<!-- corpo do card -->
 						<div class="main-card">
@@ -425,10 +461,10 @@
 						<div class="rodape-card">
 							<div class="row">
 								<div class="col-md-6">
-									<h5><i class="fa fa-calendar"></i> 30 de janeiro de 2019</h5>
+									<h5><i class="fa fa-calendar"></i> 30/03/2019</h5>
 								</div>
 								<div class="col-md-6">
-									<div class="btn-post">
+									<div class="btn-blog">
 										<a href="#">Continue Lendo</a>
 									</div>
 								</div>
@@ -441,7 +477,9 @@
 					<div class="card-body">
 						<!-- thumb -->
 						<div class="thumb-post">
-							.../imageshere
+							<div class="box-blog">
+								<a href="#">Nos acompanhe pelo Wattpad</a>
+							</div>
 						</div>
 						<!-- corpo do card -->
 						<div class="main-card">
@@ -453,10 +491,10 @@
 						<div class="rodape-card">
 							<div class="row">
 								<div class="col-md-6">
-									<h5><i class="fa fa-calendar"></i> 30 de janeiro de 2019</h5>
+									<h5><i class="fa fa-calendar"></i> 30/01/2019</h5>
 								</div>
 								<div class="col-md-6">
-									<div class="btn-post">
+									<div class="btn-blog">
 										<a href="#">Continue Lendo</a>
 									</div>
 								</div>
@@ -469,7 +507,9 @@
 					<div class="card-body">
 						<!-- thumb -->
 						<div class="thumb-post">
-							../imageshere
+							<div class="box-blog">
+								<a href="#">Nos acompanhe pelo Wattpad</a>
+							</div>
 						</div>
 						<!-- corpo do card -->
 						<div class="main-card">
@@ -481,10 +521,10 @@
 						<div class="rodape-card">
 							<div class="row">
 								<div class="col-md-6">
-									<h5><i class="fa fa-calendar"></i> 30 de janeiro de 2019</h5>
+									<h5><i class="fa fa-calendar"></i> 05/01/2019</h5>
 								</div>
 								<div class="col-md-6">
-									<div class="btn-post">
+									<div class="btn-blog">
 										<a href="#">Continue Lendo</a>
 									</div>
 								</div>
@@ -498,7 +538,7 @@
 	<!-- /Fim do Blog -->
 
 	<!-- Começo dos Links Sociais -->
-	<div class="links-sociais" style="border: 1px solid #000;">
+	<div class="links-sociais">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -516,17 +556,20 @@
 	<!-- /Fim dos Links Sociais -->
 
 	<!-- Começo do Footer -->
-	<div class="footer" style="border: 1px solid #000;">
+	<div class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<img src="img/logo_white.png" alt="Projeto Dreamers">
-					<p><i class="fa fa-copyright"></i> 2019 - Todos os direitos estão reservados</p>
+					<div class="conteudo-footer">
+						<img src="img/logo_white.png" alt="Projeto Dreamers">
+						<p><i class="fa fa-copyright"></i> 2019 - Todos os direitos estão reservados para Srta. Vivih</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- /Fim do Footer -->
-	
+
+	<script src="js/geral.js"></script>
 </body>
 </html>
